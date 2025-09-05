@@ -1,0 +1,2 @@
+MAX_RETRY_ATTEMPTS = 3
+INITIAL_RETRY_DELAY = 1000  # milliseconds
