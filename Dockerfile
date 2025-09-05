@@ -19,6 +19,7 @@ RUN pip install --no-cache-dir --upgrade pip && \
 
 # 5. Copying application code into the container
 COPY ./app /psychologistai/app
+COPY ./scripts /psychologistai/scripts
 
 # CMD ["sh", "-c", "python scripts/migration.py && gunicorn -w 4 -k uvicorn.workers.UvicornWorker --bind 0.0.0.0:10000 'app.main:create_app()' --factory"]
 
