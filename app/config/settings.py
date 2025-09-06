@@ -8,6 +8,7 @@ class Settings(BaseSettings):
     META_API_VERSION: str
     META_VERIFY_TOKEN: str
     PROMPT_SHEET_ID: str
+    SERVICE_ACCOUNT_PATH: str
     
     class Config:
         env_file = ".env"

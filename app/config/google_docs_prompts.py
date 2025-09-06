@@ -5,12 +5,13 @@ import gspread
 from google.oauth2.service_account import Credentials
 from app.config.settings import settings
 from app.config.logger import get_logger
-from pathlib import Path
+# from pathlib import Path
 
 logger = get_logger("Google Sheets Prompts")
 
-BASE_DIR = Path(__file__).resolve().parent
-SA_FILE = BASE_DIR.parent / "credentials" / "service_account.json"
+# BASE_DIR = Path(__file__).resolve().parent
+# SA_FILE = BASE_DIR.parent / "credentials" / "service_account.json"
+SA_FILE_PATH = settings.SERVICE_ACCOUNT_PATH
 
 SHEETS_SCOPES = ["https://www.googleapis.com/auth/spreadsheets.readonly"]
 
@@ -23,7 +24,7 @@ def _sheets_service():
     Create a Google Sheets client using the service account JSON.
     """
     try:
-        with open(SA_FILE, "r", encoding="utf-8") as f:
+        with open(SA_FILE_PATH, "r", encoding="utf-8") as f:
             sa_info = json.load(f)
 
         creds = Credentials.from_service_account_info(sa_info, scopes=SHEETS_SCOPES)
